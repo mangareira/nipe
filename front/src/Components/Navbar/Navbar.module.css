@@ -1,0 +1,97 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    padding: 1rem;
+  }
+.logo_nipe{
+    width: 200px;
+}
+
+.logo{
+  position: relative;
+  left: 100px;
+}
+  
+.nav_menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+  
+.nav_item {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5em;
+}
+
+.nav_links {
+  color: #1888ff;
+  text-decoration: none;
+  padding: 0.5rem 0.7rem;
+}
+
+.nav_links:hover {
+  background-color: #1888ff;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+  color: white;
+}
+
+
+.nav_links_mobile {
+  display: none;
+}
+
+.menu_icon {
+  display: none;
+}
+.nav_btn{
+  padding: 10px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #1888ff;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.nav_btn:hover{
+  transform: scale(1.05);
+
+}
+.icon_nav{
+  position: relative;
+  right: 5px;
+  top: 2px;
+}
+.icon_btn{
+  position: relative;
+  top: 3px;
+  right: 5px;
+  transform: scale(1.2);
+}
+.nav_bars{
+  display: none;
+}
+
+@media screen and (max-width: 1200px){
+  .nav_menu{
+    display: none;
+  }
+  .logo{
+    position: relative;
+    left: 0;
+  }
+  .logo_nipe{
+    width: 150px;
+  }
+  .nav_bars{
+    display: flex;
+    transform: scale(2);
+    position: relative;
+    right: 20px;
+    top: 30px;
+    color: #1888ff;
+  }
+}

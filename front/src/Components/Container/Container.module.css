@@ -1,0 +1,14 @@
+.container{
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: rgba(185, 185, 185, 0.399);
+}
+@media screen and (max-width: 900px){
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+}

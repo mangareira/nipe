@@ -1,0 +1,15 @@
+.img_slide{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    
+}
+.container{
+    width: 100%;
+    max-width: 2000px;
+    margin: 0 auto;
+    background: rgba(185, 185, 185, 0.399);
+}
+@media screen and (max-width: 1420px) {
+
+}
