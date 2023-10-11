@@ -20,7 +20,7 @@ function Home(){
                     <Link to='/iniciacaocientifica'><button className={styles.btn}>
                         Iniciar sua Pesquisa/Aluno
                     </button></Link>
-                    <Link to='/pequisadocente'><button className={styles.btn}>
+                    <Link to='/programas/pequisadocente'><button className={styles.btn}>
                         Iniciar sua Pesquisa/Professor
                     </button></Link>
                 </div>

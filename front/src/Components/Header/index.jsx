@@ -16,6 +16,9 @@ import EditaiseComites from '../pages/EditaiseComites'
 import InscricoeseResultados from '../pages/InscricoeseResultados'
 import ModeloeInstrucoes from '../pages/ModeloeInstrucoes'
 import Inscricoes from '../pages/Inscricoes'
+import InscricoesDicente from '../pages/InscriçõesDicente'
+import InscricoesEresultadoProf from '../pages/InscriçõesEresultadoProf'
+import InscricoesProf from '../pages/InscriçõesProf'
 
 function Header(){
 
@@ -33,16 +36,19 @@ function Header(){
                 <Route path='/grupodepesquisa' element={<GrupoDePesquisa/>}/>
                 <Route path='/links' element={<Links/>}/>
                 <Route path='/contato' element={<Contato/>}/>
+                <Route path='/discentedeinicicaocientifica/inscrição' element={<InscricoesDicente/>}/>
                 <Route path='/discentedeinicicaocientifica' element={<DiscenteDeIniciacaoCientifica/>}/>
                 <Route path='/extensao' element={<Extensao/>}/>
-                <Route path='/formacaocontinuadadocente' element={<FormacaoContinuadaDocente/>}/>
+                <Route path='/programas/inscricoeseresultados/inscriçoes' element={<InscricoesProf/>}/>
+                <Route path='/programas/inscricoeseresultados' element={<InscricoesEresultadoProf/>}/>
+                <Route path='/programas/pequisadocente' element={<PesquisaDocente/>}/>
+                <Route path='/programas/formacaocontinuadadocente' element={<FormacaoContinuadaDocente/>}/>
                 <Route path='/iniciacaocientifica/inscricoeseresultados/inscricoes' element={<Inscricoes/>}/>
                 <Route path='/iniciacaocientifica/inscricoeseresultados'element={<InscricoeseResultados/>}/>
                 <Route path='/iniciacaocientifica/editaisecomites'element={<EditaiseComites/>}/>
                 <Route path='/iniciacaocientifica/modeloseinstrucoes'element={<ModeloeInstrucoes/>}/>
                 <Route path='/iniciacaocientifica' element={<IniciacaoCientifica/>}/>
-                <Route path='/pequisadocente' element={<PesquisaDocente/>}/>
-                <Route path='/professorpesquisador' element={<ProfessorPesquisador/>}/>
+                <Route path='/pesquisa/professorpesquisador' element={<ProfessorPesquisador/>}/>
             </Routes>
         </Router>
     )

@@ -1,7 +1,7 @@
 export const MenuItems =[
     {
         title: 'Professor Pesquisador',
-        path: '/professorpesquisador',
+        path: '/pesquisa/professorpesquisador',
     },
     {
         title: 'Discente de iniciação Científica/IC',

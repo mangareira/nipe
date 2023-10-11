@@ -1,11 +1,11 @@
 export const MenuItems =[
     {
         title: 'Pesquisa Docente',
-        path: '/pequisadocente',
+        path: '/programas/pequisadocente',
     },
     {
         title: 'Formação Continuada Docente',
-        path: '/formacaocontinuadadocente',
+        path: '/programas/formacaocontinuadadocente',
     },
     {
         title: 'iniciação Ciêntifica',

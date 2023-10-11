@@ -1,37 +1,38 @@
 import { Link } from "react-router-dom"
 import styles from "./Docs.module.css"
-import blogFecth from "../../axios/config"
-import { useState } from 'react';
-
+import axios from "axios"
+import { useState } from "react";
 
 
 
 function Inscricoes(){
 
-    const [name, setName] =useState()
-    const [email, setEmail] = useState()
-    const [description, setDescription] = useState()
-    const [turma, setTurma] = useState()
-    const [periodo, setPeriodo] =useState()
-
-    function handleSelectCurso(e) {
-        setTurma(e.target.value)
-    }
-    function handleSelectPeriodo(e) {
-        setPeriodo(e.target.value)
-    }
-
-    const createInscription = async (e) => {
-        e.preventDefault()
-
-        const inscription = {name, description, turma, periodo, email}
-
-        await blogFecth.post("/user", {
-            body: inscription,
-        }).then(response => {
-            console.log(response)
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [turma, setTurma] = useState('')
+    const [periodo, setPeriodo] = useState('')
+    const [description, setDescription] = useState('')
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+  
+      axios.post('http://localhost:3002/user', {
+        name,
+        email,
+        turma,
+        periodo,
+        description
+      })
+        .then((response) => {
+          console.log('Requisição bem-sucedida:', response.data);
+          // Faça algo com os dados de resposta, se necessário
         })
-    }
+        .catch((error) => {
+          console.error('Erro na requisição:', error);
+          // Lide com erros, se necessário
+        });
+    };
+
     return(
         <>
             <div className={styles.header_title}>
@@ -43,14 +44,14 @@ function Inscricoes(){
                         Voltar
                     </Link>
                 </button>
-                <form id="form" onSubmit={(e) => createInscription(e)}>
-                    <label>Nome Completo:</label>
-                    <input type="text" placeholder='Escreva seu nome' name="name" onChange={(e) => setName(e.target.value)} />
-                    <label>Email:</label>
-                    <input type="email" name="email" id="email" placeholder="escreva seu email" onChange={(e) => setEmail(e.target.value)}/>
+                <form id="form" onSubmit={handleSubmit}>
+                    <label htmlFor="name">Nome Completo:</label>
+                    <input type="text" placeholder='Escreva seu nome' name="name" id="name" onChange={(e) => setName(e.target.value)} />
+                    <label htmlFor="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="escreva seu email" onChange={(e) => setEmail(e.target.value)} />
                     <label >turma:</label>
-                    <select name="curso" id="curso" onChange={handleSelectCurso}>
-                        <option value="selecione" >Selecione:</option>
+                    <select name="turma" id="turma" onChange={(e) => setTurma(e.target.value)}>
+                        <option value="" >Selecione:</option>
                         <option value="psicologia">Psicologia</option>
                         <option value="engenharia-civil">Engenharia Civil</option>
                         <option value="serviço-social">Serviço-Social</option>
@@ -58,8 +59,8 @@ function Inscricoes(){
                         <option value="admistração">Admistração</option>
                         <option value="direito">Direito</option>
                     </select>
-                    <label>Periodo:</label>
-                    <select name="periodo" id="periodo" onChange={handleSelectPeriodo}>
+                    <label htmlFor="periodo">Periodo:</label>
+                    <select name="periodo" id="periodo" onChange={(e) => setPeriodo(e.target.value)}>
                         <option value="" >Selecione:</option>
                         <option value="1° periodo">1° periodo</option>
                         <option value="2° periodo">2° periodo</option>
@@ -72,7 +73,7 @@ function Inscricoes(){
                         <option value="9° periodo">9° periodo</option>
                         <option value="10° periodo">10° periodo</option>
                     </select>
-                    <label >Descrição do projeto:</label>
+                    <label htmlFor="description">Descrição do projeto:</label>
                     <textarea name="description" id="description" cols="30" rows="10" placeholder="Digite o titulo do conteudo e o que propoem" onChange={(e) => setDescription(e.target.value)}></textarea>
                     <input type="submit" value="Submit" />
                 </form>
