@@ -1,5 +1,8 @@
 import { prisma } from "../services/prisma";
 
+
+// create a user api
+
 export const createUser = async (data) => {
     const user = await prisma.user.create({
         data,
@@ -77,4 +80,149 @@ export const deleteUser = async (id) => {
             }
         })
     return
+}
+
+//Create a prof api
+
+export const createProf = async (data) => {
+    const prof = await prisma.prof.create({
+        data,
+        select: {
+            id: true,
+            name: true,
+            email:true,
+            description: true,
+            createdAt: true,
+            updatedAt: false,
+        }
+    })
+    return prof
+}
+
+export const getAllProf = async () => {
+    const profs = await prisma.prof.findMany({
+        select: {
+            id: true,
+            name: true,
+            email:true,
+            description: true,
+            createdAt: true,
+            updatedAt: false,
+        }
+    })
+    return profs
+}
+export const getByIdProf = async(id) => {
+    const prof = await prisma.prof.findUnique({
+        where: {
+            id
+        },
+        select: {
+            id: true,
+            name: true,
+            email:true,
+            description: true,
+            createdAt: true,
+            updatedAt: false,
+        }
+    })
+    return prof
+}
+export const updateProf = async (id, data) => {
+    const prof = await prisma.prof.update({
+        where: {
+            id,
+        },
+        data,
+        select: {
+            id: true,
+            name: true,
+            email:true,
+            description: true,
+            createdAt: true,
+            updatedAt: true,
+        }
+    })
+    return prof
+}
+export const deleteProf = async (id) => {
+    await prisma.prof.delete({
+        where: {
+            id
+        }
+    })
+return
+}
+
+
+// discente api
+
+export const createDis = async (data) => {
+    const dis = await prisma.dicente.create({
+        data,
+        select: {
+            id: true,
+            name: true,
+            email:true,
+            description: true,
+            createdAt: true,
+            updatedAt: false,
+        }
+    })
+    return dis
+}
+
+export const getAllDis = async () => {
+    const dis = await prisma.dicente.findMany({
+        select: {
+            id: true,
+            name: true,
+            email:true,
+            description: true,
+            createdAt: true,
+            updatedAt: false,
+        }
+    })
+    return dis
+}
+export const getByIdDis = async(id) => {
+    const dis = await prisma.dicente.findUnique({
+        where: {
+            id
+        },
+        select: {
+            id: true,
+            name: true,
+            email:true,
+            description: true,
+            createdAt: true,
+            updatedAt: false,
+        }
+    })
+    return dis
+}
+export const updateDIs = async (id, data) => {
+    const dis = await prisma.dicente.update({
+        where: {
+            id,
+        },
+        data,
+        select: {
+            id: true,
+            name: true,
+            email:true,
+            description: true,
+            createdAt: true,
+            updatedAt: true,
+        }
+    })
+    return dis
+}
+export const deleteDis = async (id) => {
+    await prisma.dicente.delete({
+        where: {
+            id
+        }
+    })
+return
 }

@@ -7,3 +7,13 @@ export const userValidation = yup.object({
     turma: yup.string().required(),
     periodo: yup.string().required(),
 })
+export const profValidation = yup.object({
+    name: yup.string().required(),
+    email: yup.string().required().email(),
+    description: yup.string().required(),
+})
+export const disValidation = yup.object({
+    name: yup.string().required(),
+    email: yup.string().required().email(),
+    description: yup.string().required(),
+})

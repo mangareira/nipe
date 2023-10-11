@@ -1,6 +1,8 @@
 import { createUser, getAll, getById, updateUser, deleteUser } from "../repositorys/user.repository";
 import { userValidation } from "../validations/user.validations";
 
+
+//user validation
 export const create = async (req, res) => {
     try{
         await userValidation.validate(req.body)
@@ -46,3 +48,4 @@ export const remove = async (req, res) => {
         res.status(400).send(e)
     }
 }
+

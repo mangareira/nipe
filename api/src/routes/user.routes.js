@@ -8,4 +8,5 @@ const userRoutes = app => {
     app.delete("/user/:id", remove)
 }
 
-export default userRoutes
+
+export default userRoutes 
