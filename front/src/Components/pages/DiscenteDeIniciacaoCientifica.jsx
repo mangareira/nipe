@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom"
 import styles from "./Docs.module.css"
+import {FaAnglesDown} from "react-icons/fa6"
 
 function DiscenteDeIniciacaoCientifica(){
     return(
@@ -18,7 +19,10 @@ function DiscenteDeIniciacaoCientifica(){
                                 Inscrição
                             </button>
                         </Link>
-                        <p>possiveis editais</p>
+                        <div className={styles.editais_docs}>
+                            <h3>EDITAIS</h3>
+                            <FaAnglesDown className={styles.FaAnglesDown}/>
+                        </div>
 
                     </div>
                 </div>

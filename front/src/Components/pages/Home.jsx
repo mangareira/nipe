@@ -17,9 +17,11 @@ function Home(){
                     <p className={styles.text_home}>
                     Os programas de iniciação científica, pesquisa e extensão oferecidos pelo NIPE<br/> tem como objetivo propiciar a concretização de mudanças na realidade sociocultural,<br/> política e econômica do Município de Barra do Corda-MA, por meio do tripé da educação:<br/> ensino, pesquisa e extensão.
                     </p>
-                    <Link to='/iniciacaocientifica'><button className={styles.btn}>
+                    <Link to='/iniciacaocientifica'>
+                        <button className={styles.btn}>
                         Iniciar sua Pesquisa/Aluno
-                    </button></Link>
+                        </button>
+                    </Link>
                     <Link to='/programas/pequisadocente'><button className={styles.btn}>
                         Iniciar sua Pesquisa/Professor
                     </button></Link>

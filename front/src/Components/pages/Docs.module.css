@@ -34,6 +34,14 @@
     width: 80%;
     padding: 15px 5px;
 }
+.editais_docs{
+    display: flex;
+    justify-content: space-between;
+    border-bottom:2px solid #1888ff;
+    margin-top: 20px;
+    width: 50%;
+    margin-left: -25px;
+}
 .edits_docs{
     width: 80%;
     height: 80%;
@@ -91,7 +99,7 @@
     color: #fff;
     display: flex;
     justify-content: center;
-    transition: 0.5s ease-in;
+    transition: 0.3s ease-in;
 }
 .notices_text a:hover{
     background-color: #fff;
@@ -104,9 +112,13 @@
     margin: 0 7px;
     font-size: 1.25rem;
     font-weight: 500;
+    color: white;
 }
 .text_notices{
     height: 56%;
+    color: white;
+    left: 5px;
+    position: relative;
 }
 .edits_docs button{
     border: none;

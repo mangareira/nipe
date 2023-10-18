@@ -6,7 +6,7 @@ function Extensao(){
             <Container>
                 <section>
                     <h1>
-                        Extensao
+                        Em construção
                     </h1>
                 </section>
             </Container>

@@ -112,7 +112,7 @@ function Navbar() {
           <li className={styles.nav_item}>
             
             <Link
-              to='/contato'
+              to='https://api.whatsapp.com/send/?phone=559982103503&text&type=phone_number&app_absent=0'
               className={styles.nav_btn}
               
             >

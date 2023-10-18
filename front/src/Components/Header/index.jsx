@@ -1,5 +1,4 @@
 import styles from './Header.module.css'
-import Contato from '../pages/Contato'
 import Editais from '../pages/Editais'
 import GrupoDePesquisa from '../pages/GrupoDePesquisa'
 import Home from '../pages/Home'
@@ -19,6 +18,7 @@ import Inscricoes from '../pages/Inscricoes'
 import InscricoesDicente from '../pages/InscriçõesDicente'
 import InscricoesEresultadoProf from '../pages/InscriçõesEresultadoProf'
 import InscricoesProf from '../pages/InscriçõesProf'
+import InscricoesGrup from '../pages/inscricoeGrup'
 
 function Header(){
 
@@ -33,9 +33,9 @@ function Header(){
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/editais' element={<Editais/>}/>
+                <Route path='/grupodepesquisa/inscricoes' element={<InscricoesGrup/>}/>
                 <Route path='/grupodepesquisa' element={<GrupoDePesquisa/>}/>
                 <Route path='/links' element={<Links/>}/>
-                <Route path='/contato' element={<Contato/>}/>
                 <Route path='/discentedeinicicaocientifica/inscrição' element={<InscricoesDicente/>}/>
                 <Route path='/discentedeinicicaocientifica' element={<DiscenteDeIniciacaoCientifica/>}/>
                 <Route path='/extensao' element={<Extensao/>}/>

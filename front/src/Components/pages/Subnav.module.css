@@ -1,6 +1,6 @@
 .navbar_docs{
     width: 30%;
-    height: 35%;
+    height: 39%;
     border-radius: 0 0 0 20px;
     background-color: white;
     justify-content: center;
@@ -10,7 +10,9 @@
 }
 .navbar_docs h2{
     border-bottom: solid 2px #9da2b5;
-    margin-left: 15px;    
+    margin-left: 15px;
+    margin-top: 20px;
+    position: relative;    
 }
 .navbar_docs ul {
     margin: 10px;
@@ -41,5 +43,55 @@
     color: white;
 }
 .title_nav{
+    color: black;
+}
+
+
+
+.subnavbar_docs{
+    width: 30%;
+    height: 35%;
+    border-radius: 0 0 0 20px;
+    background-color: white;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #cecece
+}
+.subnavbar_docs h2{
+    border-bottom: solid 2px #9da2b5;
+    margin-left: 15px;
+    margin-top: 20px;
+    position: relative;    
+}
+.subnavbar_docs ul {
+    margin: 10px;
+    list-style: none;
+}
+.subnavbar_docs ul li {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5em;
+    border-radius: 20px;
+    transition: 0.5s ;
+}
+.subnavbar_docs ul li:hover{
+    background-color: #1888ff;
+    transform: scale(1.05);
+    color: white;
+    transition: 0.5s ease ;
+    
+}
+.subnavbar_docs ul li a{
+    text-decoration: none;
+    color: black;
+    padding: 0.75rem 0.7rem;
+    width: 100%;
+    transition: 0.5s ease;
+}
+.subnavbar_docs ul li a:hover{
+    color: white;
+}
+.subtitle_nav{
     color: black;
 }

@@ -226,3 +226,75 @@ export const deleteDis = async (id) => {
     })
 return
 }
+
+// grup api
+
+export const createGrup = async (data) => {
+    const Grup = await prisma.gruPesq.create({
+        data,
+        select: {
+            id: true,
+            tema: true,
+            nameGrup: true,
+            description: true,
+            createdAt: true,
+            updatedAt: false,
+        }
+    })
+    return Grup
+}
+
+export const getAllGrup = async () => {
+    const Grup = await prisma.gruPesq.findMany({
+        select: {
+            id: true,
+            tema: true,
+            nameGrup: true,
+            description: true,
+            createdAt: true,
+            updatedAt: false,
+        }
+    })
+    return Grup
+}
+export const getByIdGrup = async(id) => {
+    const Grup = await prisma.gruPesq.findUnique({
+        where: {
+            id
+        },
+        select: {
+            id: true,
+            tema: true,
+            nameGrup: true,
+            description: true,
+            createdAt: true,
+            updatedAt: false,
+        }
+    })
+    return Grup
+}
+export const updateGrup = async (id, data) => {
+    const Grup = await prisma.gruPesq.update({
+        where: {
+            id,
+        },
+        data,
+        select: {
+            id: true,
+            tema: true,
+            nameGrup: true,
+            description: true,
+            createdAt: true,
+            updatedAt: true,
+        }
+    })
+    return Grup
+}
+export const deleteGrup = async (id) => {
+    await prisma.gruPesq.delete({
+        where: {
+            id
+        }
+    })
+return
+}

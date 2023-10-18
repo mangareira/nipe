@@ -13,8 +13,8 @@ function InscricoesEresultadoProf(){
             </div>
             <div className={styles.container_Ini}>
                 <div className={styles.container_texts}>
-                    <div className={Nav.navbar_docs}>
-                        <h2 className={Nav.title_nav}>Iniciação Científica</h2>
+                    <div className={Nav.subnavbar_docs}>
+                        <h2 className={Nav.subtitle_nav}>Docentes</h2>
                         <ul>
                             <SubNavbarItems/>
                         </ul>

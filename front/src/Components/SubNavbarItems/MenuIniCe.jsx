@@ -15,5 +15,8 @@ export const MenuIniCe =[
         title: 'Modelos e Instruções',
         path: '/iniciacaocientifica/modeloseinstrucoes',
     },
-    
+    {
+        title: 'Grupo de pesquisa',
+        path: '/grupodepesquisa'
+    }
 ]

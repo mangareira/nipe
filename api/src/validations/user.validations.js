@@ -17,3 +17,8 @@ export const disValidation = yup.object({
     email: yup.string().required().email(),
     description: yup.string().required(),
 })
+export const grupValidation = yup.object({
+    tema: yup.string().required(),
+    nameGrup: yup.string().required(),
+    description: yup.string().required(),
+})

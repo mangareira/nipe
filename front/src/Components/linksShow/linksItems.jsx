@@ -7,11 +7,11 @@ export const linksItems = [
     {
         logo: logoCnpq,
         text: "acessar o curriculo lattes",
-        path: "https://wwws.cnpq.br/cvlattesweb/pkg_cv_estr.inicio"
+        path: "https://lattes.cnpq.br"
     },
     {
         logo: logoUni,
         text: "acessar site da Unicentroma",
-        path: "https://www.unicentroma.edu.br/2019/"
+        path: "https://site.unicentroma.edu.br"
     }
 ]
