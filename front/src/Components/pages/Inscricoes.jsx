@@ -14,8 +14,7 @@ function Inscricoes(){
     const [periodo, setPeriodo] = useState('')
     const [description, setDescription] = useState('')
   
-    const handleSubmit = (e) => {
-      e.preventDefault();
+    const handleSubmit = () => {
   
       axios.post('http://localhost:3002/user', {
         name,
