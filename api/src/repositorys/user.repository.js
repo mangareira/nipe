@@ -15,7 +15,7 @@ export const createUser = async (data) => {
             periodo:true,
             createdAt: true,
             updatedAt: false,
-        }
+        },
     })
     return user
 }
@@ -31,7 +31,10 @@ export const getAll = async () => {
             description: true,
             createdAt: true,
             updatedAt: false,
-        }
+        },
+        //include:{
+         //   projetos:true
+        //}
     })
     return users
 }
@@ -49,7 +52,10 @@ export const getById = async(id) => {
             periodo:true,
             createdAt: true,
             updatedAt: false,
-        }
+        },
+        //include:{
+        //    projetos:true
+        //}
     })
     return user
 }
@@ -69,6 +75,12 @@ export const updateUser = async (id, data) => {
             periodo:true,
             createdAt: true,
             updatedAt: true,
+            //projetos:{
+            //    select:{
+            //        tema:true,
+            //        resumo:true
+            //    }
+            //}
         }
     })
     return user
@@ -243,7 +255,6 @@ export const createGrup = async (data) => {
     })
     return Grup
 }
-
 export const getAllGrup = async () => {
     const Grup = await prisma.gruPesq.findMany({
         select: {
@@ -292,6 +303,69 @@ export const updateGrup = async (id, data) => {
 }
 export const deleteGrup = async (id) => {
     await prisma.gruPesq.delete({
+        where: {
+            id
+        }
+    })
+return
+}
+
+// upload api 
+
+export const uploadCreate = async (data) => {
+    const upload = await prisma.image.create({
+        data,
+        select: {
+            id: true,
+            nome: true,
+            path: true,
+            type: true,
+        }
+    })
+    return upload
+}
+export const getAllUpload = async () => {
+    const upload = await prisma.image.findMany({
+        select: {
+            id: true,
+            nome: true,
+            path: true,
+            type: true,
+        }
+    })
+    return upload
+}
+export const getByIdUpload = async(id) => {
+    const upload = await prisma.image.findUnique({
+        where: {
+            id
+        },
+        select: {
+            id: true,
+            nome: true,
+            path: true,
+            type: true,
+        }
+    })
+    return upload
+}
+export const updateUpload = async (id, data) => {
+    const upload = await prisma.image.update({
+        where: {
+            id,
+        },
+        data,
+        select: {
+            id: true,
+            nome: true,
+            path: true,
+            type: true,
+        }
+    })
+    return upload
+}
+export const deleteupload = async (id) => {
+    await prisma.image.delete({
         where: {
             id
         }

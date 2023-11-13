@@ -1,5 +1,5 @@
 
-import {List, TextField, DateField, DeleteButton, Edit,Show, SimpleForm, Create, TextInput, DateInput , Pagination, DatagridConfigurable, TopToolbar, SelectColumnsButton, SimpleShowLayout, ShowButton, ExportButton, } from 'react-admin'
+import {List, TextField, DateField, DeleteButton, Edit,Show, SimpleForm, Create, TextInput, DateInput , Pagination, DatagridConfigurable, TopToolbar, SelectColumnsButton, SimpleShowLayout, ShowButton, ExportButton, CreateButton, } from 'react-admin'
 
 
 
@@ -8,6 +8,7 @@ const GrupListActions = () => (
     <TopToolbar>
         <SelectColumnsButton />
         <ExportButton/>
+        <CreateButton/>
     </TopToolbar>
 )
 
@@ -32,8 +33,8 @@ export const GrupEdit= (props) => {
         <Edit {...props} title={"Editar Usuario"}>
             <SimpleForm>
                 <TextInput disabled source='id'/>
-                <TextInput source='name'/>
-                <TextInput source='email'/>
+                <TextInput source='nameGrup'/>
+                <TextInput source='tema'/>
                 <TextInput multiline source='description'/>
                 <DateInput source='createdAt'/>
             </SimpleForm>
@@ -44,8 +45,8 @@ export const GrupCreate= (props) => {
     return(
         <Create {...props} title={"Criar Usuario"}>
             <SimpleForm>
-                <TextInput source='name'/>
-                <TextInput source='email'/>
+                <TextInput source='nameGrup'/>
+                <TextInput source='tema'/>
                 <TextInput multiline source='description'/>
             </SimpleForm>
         </Create>
@@ -55,8 +56,8 @@ export const GrupShow = (props) => {
     return(
         <Show >
             <SimpleShowLayout  {...props}>
-                <TextField  source='name'/>
-                <TextField  source='email'/>
+                <TextField  source='nameGrup'/>
+                <TextField source='tema'/>
                 <TextField  source='description'/>
             </SimpleShowLayout>
         </Show>

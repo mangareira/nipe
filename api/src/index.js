@@ -2,7 +2,11 @@ import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
 import routes from "./routes"
+import multer from "multer"
+import { storage, storageArquivo } from "./multerConfig"
+
 const { PrismaClient } = require('@prisma/client');
+
 
 const prisma = new PrismaClient()   
 
@@ -11,12 +15,15 @@ dotenv.config()
 const app = express()
 
 
+app.use(express.json())
+
 app.use(
-    cors({
-        origin: ["http://localhost:5173","http://localhost:5174"],
-        exposedHeaders: "Content-Range"
-    })
-)
+  cors({
+    origin: ["http://localhost:5173","http://localhost:5174"],
+    exposedHeaders: "Content-Range"
+  })
+  )
+
 app.get('/user', async (req, res) => {
     try {
       const user = await prisma.user.findMany();
@@ -93,7 +100,48 @@ app.get('/dicente', async (req, res) => {
     res.status(500).json({ error: 'Erro interno do servidor' });
   }
 })
-app.use(express.json())
+
+const uploads = multer({storage: storage})
+const uploadsArq = multer({storage: storageArquivo})
+ 
+app.post("/uploads/image", uploads.single("image"), async (req, res) => {
+  try {
+    const nomeArquivo = req.file.filename;
+    const tipoArquivo = req.file.mimetype;
+    const pathArquivo = req.file.path
+    
+    const novoArquivo = await prisma.image.create({
+      data: {
+        nome: nomeArquivo,
+        type: tipoArquivo,
+        path: pathArquivo
+      },
+    })
+  res.status(200).json({ mensagem: "Imagem enviada com sucesso!', arquivo: novoArquivo" })
+} catch (error) {
+  console.error(error);
+  res.status(500).json({ error: 'Erro interno do servidor' })
+  }
+})
+app.post("/uploads/arquivo", uploadsArq.single("arquivo"), async (req, res) => {
+  try {
+    const nomeArquivo = req.file.filename;
+    const tipoArquivo = req.file.mimetype;
+    const pathArquivo = req.file.path
+    
+    const novoArquivo = await prisma.image.create({
+      data: {
+        nome: nomeArquivo,
+        type: tipoArquivo,
+        path: pathArquivo
+      },
+    })
+  res.status(200).json({ mensagem: "arquivo enviada com sucesso!', arquivo: novoArquivo" })
+} catch (error) {
+  console.error(error);
+  res.status(500).json({ error: 'Erro interno do servidor' })
+  }
+})
 
 routes(app)
 

@@ -1,5 +1,5 @@
 
-import {List, TextField, DateField, DeleteButton, Edit,Show, SimpleForm, Create, TextInput, DateInput , Pagination, DatagridConfigurable, TopToolbar, SelectColumnsButton, SimpleShowLayout, ShowButton, ExportButton, } from 'react-admin'
+import {List, TextField, DateField, DeleteButton, Edit,Show, SimpleForm, Create, TextInput, DateInput , Pagination, DatagridConfigurable, TopToolbar, SelectColumnsButton, SimpleShowLayout, ShowButton, ExportButton, CreateButton, } from 'react-admin'
 
 
 
@@ -8,6 +8,7 @@ const StudentsListActions = () => (
     <TopToolbar>
         <SelectColumnsButton />
         <ExportButton/>
+        <CreateButton/>
     </TopToolbar>
 )
 
