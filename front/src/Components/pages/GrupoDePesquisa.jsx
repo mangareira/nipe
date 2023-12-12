@@ -26,6 +26,9 @@ function GrupoDePesquisa(){
                             <Link to={"/grupodepesquisa/inscricoes"}>
                                 <button>Inscrição</button>
                             </Link>
+                            <Link className={styles.links_login} to={"/login/grup"}>
+                                <button >Criar Projetos</button>
+                            </Link>
                             <div className={styles.results}>
                                 <h3>Resultados 2023</h3>
                                 <FaAnglesDown className={styles.FaAnglesDown}/>

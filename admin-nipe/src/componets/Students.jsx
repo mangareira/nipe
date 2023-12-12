@@ -1,5 +1,6 @@
 
-import {List, TextField, DateField, DeleteButton, Edit,Show, SimpleForm, Create, TextInput, DateInput , Pagination, DatagridConfigurable, TopToolbar, SelectColumnsButton, SimpleShowLayout, ShowButton, ExportButton, CreateButton, } from 'react-admin'
+import {List, TextField, DateField, Edit,Show, SimpleForm, Create, TextInput, DateInput , Pagination, DatagridConfigurable, TopToolbar, SelectColumnsButton, SimpleShowLayout, ShowButton, ExportButton, CreateButton, Datagrid, ListButton, } from 'react-admin'
+import { useParams } from 'react-router-dom'
 
 
 
@@ -25,7 +26,7 @@ export const StudentsList= (props) => {
                 <TextField label='Descrição' source='description'/>
                 <DateField label='Criado em' source='createdAt'/>
                 <ShowButton/>
-                <DeleteButton/>
+                <ListButton/>
             </DatagridConfigurable>
         </List>
     )
@@ -51,6 +52,7 @@ export const StudentsCreate= (props) => {
             <SimpleForm>
                 <TextInput source='name'/>
                 <TextInput source='email'/>
+                <TextInput source='password'/>
                 <TextInput source='turma'/>
                 <TextInput source='periodo'/>
                 <TextInput multiline source='description'/>
@@ -72,3 +74,16 @@ export const StudentsShow = (props) => {
     )
 }
 
+export const ProjectList = () => {
+    const { id } = useParams()
+
+    return (
+        <List resource='project' filter={{authorId: id}}>
+            <Datagrid>
+                <TextField source='id'/>
+                <TextField source='tema'/>
+            </Datagrid>
+
+        </List>
+    )
+}

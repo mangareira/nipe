@@ -1,28 +1,7 @@
-import { createDis, getAllDis, getByIdDis, updateDIs, deleteDis } from "../repositorys/user.repository";
-import { disValidation } from "../validations/user.validations";
+import { getByIdDis, updateDIs, deleteDis } from "../repositorys/user.repository";
 
 
 //user validation
-export const disCreate = async (req, res) => {
-    try{
-        await disValidation.validate(req.body)
-
-        const dis = await createDis(req.body)
-        res.status(200).send(dis)
-    }catch (e) {
-        res.status(400).send(e)
-    }
-}
-
-
-export const disGet = async (req,res) => {
-    try{
-        const dis = await getAllDis()
-        res.status(200).send(dis)
-    }catch (e){
-        res.status(400).send(e)
-    }
-}
 export const disGetId = async (req, res) => {
     try{
         const dis = await getByIdDis(Number(req.params.id))

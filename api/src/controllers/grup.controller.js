@@ -1,28 +1,7 @@
-import { createGrup, getAllGrup, getByIdGrup, updateGrup, deleteGrup } from "../repositorys/user.repository";
-import { grupValidation } from "../validations/user.validations";
+import { getByIdGrup, updateGrup, deleteGrup } from "../repositorys/user.repository";
 
 
 //user validation
-export const grupCreate = async (req, res) => {
-    try{
-        await grupValidation.validate(req.body)
-
-        const grup = await createGrup(req.body)
-        res.status(200).send(grup)
-    }catch (e) {
-        res.status(400).send(e)
-    }
-}
-
-
-export const grupGet = async (req,res) => {
-    try{
-        const grup = await getAllGrup()
-        res.status(200).send(grup)
-    }catch (e){
-        res.status(400).send(e)
-    }
-}
 export const grupGetId = async (req, res) => {
     try{
         const grup = await getByIdGrup(Number(req.params.id))

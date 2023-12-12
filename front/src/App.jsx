@@ -2,13 +2,16 @@
 import './App.css'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
+import { AuthProvider } from './Components/context/auth'
 
 function App() {
 
   return (
     <>
-      <Header/>
-      <Footer/>
+      <AuthProvider>
+        <Header/>
+        <Footer/>
+      </AuthProvider>
     </>
   )
 }

@@ -19,6 +19,9 @@ function DiscenteDeIniciacaoCientifica(){
                                 Inscrição
                             </button>
                         </Link>
+                        <Link className={styles.links_login} to={"/login/dis"}>
+                                <button >Criar Projetos</button>
+                        </Link>
                         <div className={styles.editais_docs}>
                             <h3>EDITAIS</h3>
                             <FaAnglesDown className={styles.FaAnglesDown}/>

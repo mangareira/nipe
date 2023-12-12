@@ -23,6 +23,9 @@ app.use(
     exposedHeaders: "Content-Range"
   })
   )
+  
+const uploads = multer({storage: storage})
+const uploadsArq = multer({storage: storageArquivo})
 
 app.get('/user', async (req, res) => {
     try {
@@ -100,10 +103,25 @@ app.get('/dicente', async (req, res) => {
     res.status(500).json({ error: 'Erro interno do servidor' });
   }
 })
+app.get('/project', async (req, res) => {
+  try {
+    const user = await prisma.projects.findMany();
+    const totalUsers = user.length;
+    const rangeStart = 0;
+    const rangeEnd = totalUsers - 1;
 
-const uploads = multer({storage: storage})
-const uploadsArq = multer({storage: storageArquivo})
- 
+    // Calcule o cabeçalho Content-Range com base nos dados obtidos
+    const contentRange = `dicentes ${rangeStart}-${rangeEnd}/${totalUsers}`;
+
+    // Defina o cabeçalho Content-Range na resposta
+    res.setHeader('Content-Range', contentRange);
+
+    res.status(200).json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro interno do servidor' });
+  }
+}) 
 app.post("/uploads/image", uploads.single("image"), async (req, res) => {
   try {
     const nomeArquivo = req.file.filename;
@@ -129,7 +147,7 @@ app.post("/uploads/arquivo", uploadsArq.single("arquivo"), async (req, res) => {
     const tipoArquivo = req.file.mimetype;
     const pathArquivo = req.file.path
     
-    const novoArquivo = await prisma.image.create({
+    const novoArquivo = await prisma.arquivo.create({
       data: {
         nome: nomeArquivo,
         type: tipoArquivo,
@@ -142,6 +160,7 @@ app.post("/uploads/arquivo", uploadsArq.single("arquivo"), async (req, res) => {
   res.status(500).json({ error: 'Erro interno do servidor' })
   }
 })
+
 
 routes(app)
 

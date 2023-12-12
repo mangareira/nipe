@@ -1,12 +1,9 @@
 import {uploadCreate, getAllUpload, getByIdUpload, updateUpload, deleteupload } from "../repositorys/user.repository";
-import { uploadValidation } from "../validations/user.validations";
 
 
 //user validation
 export const createUpload = async (req, res) => {
     try{
-        await uploadValidation.validate(req.body)
-
         const upload = await uploadCreate(req.body)
         res.status(200).send(upload)
     }catch (e) {

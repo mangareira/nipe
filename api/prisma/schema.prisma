@@ -9,56 +9,90 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
 model User {
-  id Int @id @default(autoincrement())
-  name String
-  email String @unique
-  description String
-  periodo String
-  turma String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  projetos Projects[]
+  id        String     @id @default(uuid())
+  name      String
+  email     String     @unique
+  password  String
+  periodo   String
+  turma     String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Projetos  Projects[]
 }
+
 model Projects {
-  id Int @id @default(autoincrement())
-  tema String
+  id       String  @id @default(uuid())
+  tema     String
+  resumo   String
+  author   User?   @relation(fields: [authorId], references: [id])
+  authorId String?
+}
+
+model ProjectsProf {
+  id     String  @id @default(uuid())
+  tema   String
   resumo String
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
+  Prof   Prof?   @relation(fields: [profId], references: [id])
+  profId String?
 }
+
+model ProjectsDis {
+  id        String   @id @default(uuid())
+  tema      String
+  resumo    String
+  Dicente   Dicente? @relation(fields: [dicenteId], references: [id])
+  dicenteId String?
+}
+
+model ProjectsGrup {
+  id        String   @id @default(uuid())
+  tema      String
+  resumo    String
+  GruPesq   GruPesq? @relation(fields: [gruPesqId], references: [id])
+  gruPesqId String?
+}
+
 model Prof {
-  id Int @id @default(autoincrement())
-  name String
-  email String @unique
-  description String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id        String         @id @default(uuid())
+  name      String
+  email     String         @unique
+  password  String
+  Projetos  ProjectsProf[]
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
 }
+
 model Dicente {
-  id Int @id @default(autoincrement())
-  name String
-  email String @unique
-  description String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id        String        @id @default(uuid())
+  name      String
+  email     String        @unique
+  password  String
+  Projetos  ProjectsDis[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
 }
+
 model GruPesq {
-  id Int @id @default(autoincrement())
-  tema String
-  nameGrup String
-  description String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt()
+  id        String         @id @default(uuid())
+  nameGrup  String
+  email     String         @unique
+  password  String
+  Projetos  ProjectsGrup[]
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt()
 }
+
 model Image {
-  id Int @id @default(autoincrement())
+  id   String @id @default(uuid())
   nome String
   path String
   type String
 }
+
 model Arquivo {
-  id Int @id @default(autoincrement())
+  id   String @id @default(uuid())
   nome String
   path String
   type String
