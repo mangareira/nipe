@@ -20,7 +20,7 @@ function LoginPage () {
     }
 
     if (signed) {
-        return <Navigate to={"/projetos/user/criacao"}/>
+        return <Navigate to={"/projetos/user/meusprojetos"}/>
     } else {
         return(
             <>

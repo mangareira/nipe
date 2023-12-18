@@ -5,53 +5,87 @@ import bcrypt from "bcrypt"
 // create a user api
 
 export const createUser = async (req, res) => {
-    const {name, email, password, turma, periodo} = req.body
-
-    const hashPassword = await bcrypt.hash(password, 10)
-
-    const user = await prisma.user.create({
-        data: {name, email, password: hashPassword,periodo, turma}
-    })
-    return res.json(user)
+    try {
+        const {name, email, password, turma, periodo} = req.body
+    
+        const hashPassword = await bcrypt.hash(password, 10)
+    
+        const user = await prisma.user.create({
+            data: {name, email, password: hashPassword,periodo, turma}
+        })
+        return res.status(201).json(user)
+    } catch (error) {
+        return res.status(400).json(error);
+    }
 }
 export const getAll = async (req, res) => {
-    const users = await prisma.user.findMany({
-        select:{
-            id:true,
-            name:true,
-            Projetos:true
-        }
-    })
-    return res.json(users)
-}
-export const getById = async(id) => {
-    const user = await prisma.user.findUnique({
-        where: {
-            id
-        },
-        
-    })
-    return user
-}
-export const updateUser = async (id, data) => {
-    const user = await prisma.user.update({
-        where: {
-            id,
-        },
-        data,
-        include:{
-            projetos:true,
-        }
-    })
-    return user
-}
-export const deleteUser = async (id) => {
-        await prisma.user.delete({
-            where: {
-                id
+    try {
+        const users = await prisma.user.findMany({
+            select:{
+                id:true,
+                name:true,
+                Projetos:true
             }
         })
-    return
+        return res.json(users)  
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+}
+export const getById = async(req, res) => {
+    try {
+        const {id} = req.params
+    
+        const user = await prisma.user.findUnique({
+          where: {
+            id: id
+          },
+          select: {
+            id: true,
+            name: true,
+            Projetos:{
+                select:{
+                    id:true,
+                    tema:true,
+                    resumo:true
+                }
+            }
+          },
+        });
+        return res.status(200).json(user);
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+}
+export const updateUser = async (req,res) => {
+    try {
+        const { name } = req.body;
+        const { id } = req.params;
+    
+        const user = await prisma.user.update({
+            where: { id: id },
+            data: {
+                name,
+          },
+        })
+        return res.status(200).json(user);    
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+}
+export const deleteUser = async (req,res) => {
+    try {
+        const {id} = req.params
+    
+        const user = await prisma.user.delete({
+          where: {
+            id: id
+          },
+        });
+        return res.status(200).json(user);   
+    } catch (error) {
+        return res.status(400).json(error); 
+    }
 }
 //creat projects user
 
@@ -99,7 +133,20 @@ export const getAllProjects = async (req, res) => {
     })
     return res.json(projects)
 }
-
+export const getByIdProjects = async(req, res) => {
+    try {
+        const {id} = req.params
+    
+        const user = await prisma.projects.findUnique({
+          where: {
+            id: id
+          },
+        });
+        return res.status(200).json(user);
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+}
 
 //Create a prof api
 
@@ -123,21 +170,30 @@ export const getAllProf = async (req, res) => {
     })
     return res.json(users)
 }
-export const getByIdProf = async(id) => {
-    const prof = await prisma.prof.findUnique({
-        where: {
-            id
-        },
-        select: {
+export const getByIdProf = async(req, res) => {
+    try {
+        const {id} = req.params
+    
+        const user = await prisma.prof.findUnique({
+          where: {
+            id: id
+          },
+          select: {
             id: true,
             name: true,
-            email:true,
-            description: true,
-            createdAt: true,
-            updatedAt: false,
-        }
-    })
-    return prof
+            Projetos:{
+                select:{
+                    id:true,
+                    tema:true,
+                    resumo:true
+                }
+            }
+          },
+        });
+        return res.status(200).json(user);
+    } catch (error) {
+        return res.status(400).json(error);
+    }
 }
 export const updateProf = async (id, data) => {
     const prof = await prisma.prof.update({
@@ -234,21 +290,30 @@ export const getAllDis = async (req, res) => {
     })
     return res.json(users)
 }
-export const getByIdDis = async(id) => {
-    const dis = await prisma.dicente.findUnique({
-        where: {
-            id
-        },
-        select: {
+export const getByIdDis = async(req,res) => {
+    try {
+        const {id} = req.params
+    
+        const user = await prisma.dicente.findUnique({
+          where: {
+            id: id
+          },
+          select: {
             id: true,
             name: true,
-            email:true,
-            description: true,
-            createdAt: true,
-            updatedAt: false,
-        }
-    })
-    return dis
+            Projetos:{
+                select:{
+                    id:true,
+                    tema:true,
+                    resumo:true
+                }
+            }
+          },
+        });
+        return res.status(200).json(user);
+    } catch (error) {
+        return res.status(400).json(error);
+    }
 }
 export const updateDIs = async (id, data) => {
     const dis = await prisma.dicente.update({
@@ -343,21 +408,30 @@ export const getAllGrup = async (req, res) => {
     })
     return res.json(users)
 }
-export const getByIdGrup = async(id) => {
-    const Grup = await prisma.gruPesq.findUnique({
-        where: {
-            id
-        },
-        select: {
+export const getByIdGrup = async(req, res) => {
+    try {
+        const {id} = req.params
+    
+        const user = await prisma.gruPesq.findUnique({
+          where: {
+            id: id
+          },
+          select: {
             id: true,
-            tema: true,
             nameGrup: true,
-            description: true,
-            createdAt: true,
-            updatedAt: false,
-        }
-    })
-    return Grup
+            Projetos:{
+                select:{
+                    id:true,
+                    tema:true,
+                    resumo:true
+                }
+            }
+          },
+        });
+        return res.status(200).json(user);
+    } catch (error) {
+        return res.status(400).json(error);
+    }
 }
 export const updateGrup = async (id, data) => {
     const Grup = await prisma.gruPesq.update({

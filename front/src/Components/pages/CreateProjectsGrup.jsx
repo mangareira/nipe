@@ -1,5 +1,5 @@
 import styles from "./Docs.module.css"
-import Projects from "../SubNavbarItems/Projects"
+import Projects from "../SubNavbarItems/ProjectsGrup"
 import { useState } from "react"
 import axios from "axios"
 

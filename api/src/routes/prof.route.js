@@ -1,10 +1,10 @@
-import { profGetId, profUpdate, profRemove} from "../controllers/prof.controller";
-import { createProf, getAllProf } from "../repositorys/user.repository";
+import { profUpdate, profRemove} from "../controllers/prof.controller";
+import { createProf, getAllProf, getByIdProf } from "../repositorys/user.repository";
 
 const profRoutes = app => {
     app.post("/prof", createProf)
     app.get("/profes", getAllProf)
-    app.get("/prof/:id", profGetId)
+    app.get("/prof-unique/:id", getByIdProf)
     app.put("/prof/:id", profUpdate)
     app.delete("/prof/:id", profRemove)
 }

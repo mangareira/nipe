@@ -19,7 +19,7 @@ function LoginPageGrup () {
     }
 
     if (signedGrup) {
-        return <Navigate to={"/projetos/grup/criacao"}/>
+        return <Navigate to={"/projetos/grup/meusprojetos"}/>
     } else {
         return(
             <>

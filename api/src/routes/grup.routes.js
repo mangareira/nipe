@@ -1,10 +1,10 @@
-import { grupGetId, grupUpdate, grupRemove} from "../controllers/grup.controller";
-import { createGrup, getAllGrup } from "../repositorys/user.repository";
+import {  grupUpdate, grupRemove} from "../controllers/grup.controller";
+import { createGrup, getAllGrup, getByIdGrup } from "../repositorys/user.repository";
 
 const grupRoutes = app => {
     app.post("/grup", createGrup)
     app.get("/grupes", getAllGrup)
-    app.get("/grup/:id", grupGetId)
+    app.get("/grup-unique/:id", getByIdGrup)
     app.put("/grup/:id", grupUpdate)
     app.delete("/grup/:id", grupRemove)
 }

@@ -19,7 +19,7 @@ function LoginPageDis () {
     }
 
     if (signedDis) {
-        return <Navigate to={"/projetos/dis/criacao"}/>
+        return <Navigate to={"/projetos/dis/meusprojetos"}/>
     } else {
         return(
             <>

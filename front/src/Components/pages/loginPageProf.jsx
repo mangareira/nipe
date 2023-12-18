@@ -19,7 +19,7 @@ function LoginPageProf () {
     }
 
     if (signedProf) {
-        return <Navigate to={"/projetos/prof/criacao"}/>
+        return <Navigate to={"/projetos/prof/meusprojetos"}/>
     } else {
         return(
             <>

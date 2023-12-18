@@ -1,10 +1,12 @@
 
-import { createProjects, createProjectsDis, createProjectsGrup, createProjectsProf, getAllProjects, getAllProjectsDis, getAllProjectsGrup, getAllProjectsProf } from "../repositorys/user.repository"
+import { AuthMiddlewares } from "../middleware"
+import { createProjects, createProjectsDis, createProjectsGrup, createProjectsProf, getAllProjects, getAllProjectsDis, getAllProjectsGrup, getAllProjectsProf, getByIdProjects } from "../repositorys/user.repository"
 
 
 const projectRouter = app => {
     app.post("/project/:authorId", createProjects)
     app.get("/project", getAllProjects)
+    app.get("/project-unique/:id", getByIdProjects)
 
     app.post("/projectprof/:ProfId", createProjectsProf)
     app.get("/projectprof", getAllProjectsProf)

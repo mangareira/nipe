@@ -1,10 +1,10 @@
 export const ProjectItem =[
     {
         title: 'Meus Projetos',
-        path: '/projetos/meusprojetos',
+        path: '/projetos/user/meusprojetos',
     },
     {
         title: 'Criar projetos',
-        path: '/projetos/criacao',
+        path: '/projetos/user/criacao',
     },
 ]

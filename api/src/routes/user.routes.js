@@ -1,13 +1,12 @@
-import {getId, update, remove} from "../controllers/user.controller";
 import { AuthMiddlewares } from "../middleware";
-import { createUser, getAll } from "../repositorys/user.repository";
+import { createUser, deleteUser, getAll, getById, updateUser } from "../repositorys/user.repository";
 
 const userRoutes = app => {
     app.post("/user", createUser)
     app.get("/useres",AuthMiddlewares ,getAll)
-    app.get("/user/:id", getId)
-    app.put("/user/:id", update)
-    app.delete("/user/:id", remove)
+    app.get("/user-unique/:id", getById)
+    app.put("/user-update/:id",AuthMiddlewares,  updateUser)
+    app.delete("/user-delete/:id",AuthMiddlewares,  deleteUser)
 }
 
 

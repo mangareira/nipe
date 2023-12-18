@@ -31,6 +31,10 @@ import LoginPage from '../pages/loginPage'
 import LoginPageProf from '../pages/loginPageProf'
 import LoginPageGrup from '../pages/loginPageGrup'
 import LoginPageDis from '../pages/loginPageDis'
+import MyProjects from '../pages/MyProjects'
+import MyProjectsProf from '../pages/MyProjectsProf'
+import MyProjectsDis from '../pages/MyProjectsDis'
+import MyProjectsGrup from '../pages/MyProjectsGrup'
 
 function Header(){
 
@@ -66,15 +70,19 @@ function Header(){
                 <Route path='/login/dis' element={<LoginPageDis/>}/>
                 <Route path='/login/grup' element={<LoginPageGrup/>}/>
                 <Route path='/projetos' element={<PrivateRoute/>}>
+                    <Route path='/projetos/user/meusprojetos' element={<MyProjects/>}/>
                     <Route path='/projetos/user/criacao' element={<CreateProjects/>}/>
                 </Route>
                 <Route path='/projetos' element={ <PrivateRouteProf/>}>
+                    <Route path='/projetos/prof/meusprojetos' element={<MyProjectsProf/>}/>
                     <Route path='/projetos/prof/criacao' element={<CreateProjectsProf/>}/>
                 </Route>
                 <Route path='/projetos' element={ <PrivateRouteDis/>}>
+                    <Route path='/projetos/dis/meusprojetos' element={<MyProjectsDis/>}/>
                     <Route path='/projetos/dis/criacao' element={<CreateProjectsDis/>}/>
                 </Route>
                 <Route path='/projetos' element={ <PrivateRouteGrup/>}>
+                    <Route path='/projetos/grup/meusprojetos' element={<MyProjectsGrup/>}/>
                     <Route path='/projetos/grup/criacao' element={<CreateProjectsGrup/>}/>
                 </Route>
             </Routes>
