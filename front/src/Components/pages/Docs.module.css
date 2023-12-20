@@ -596,3 +596,41 @@
 .projects_btn:hover{
     cursor: pointer;
 }
+
+.box_resumo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 10px 0 10px 10px;
+    width: 700px;
+    height: 130px;
+    padding: 10px;
+    border-radius: 10px;
+    background: transparent;
+    backdrop-filter: blur(100px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.header_temas {
+    display: flex;
+    border-bottom: 2px solid #55fe12;
+    width: 20%;
+    background-color: transparent;
+}
+.btn_container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.btn_page{
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #1888ff;
+    border-radius: 5px;
+    background: none;
+}
+.btn_page:hover{
+    background-color: #21d4fd;
+    color: #fff;
+}

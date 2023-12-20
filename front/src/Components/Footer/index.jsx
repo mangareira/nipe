@@ -1,6 +1,5 @@
 import styles from './Footer.module.css'
 import uniLogo from '../../assets/logoUni.png'
-import React from 'react'
 
 
 function Footer(){
