@@ -1,15 +1,21 @@
+
+:root{
+    --main-color: #1eb2a6;
+    --color-letter: #000;
+    --background-navbar:#fff;
+    --color-letter-navbar: #fff;
+}
 .navbar_docs{
     width: 30%;
     height: 39%;
     border-radius: 0 0 0 20px;
-    background-color: white;
+    background-color: var(--background-navbar);
     justify-content: center;
     display: flex;
     flex-direction: column;
-    border: solid 1px #cecece
 }
 .navbar_docs h2{
-    border-bottom: solid 2px #9da2b5;
+    border-bottom: solid 2px var(--main-color);
     margin-left: 15px;
     margin-top: 20px;
     position: relative;    
@@ -26,24 +32,67 @@
     transition: 0.5s ;
 }
 .navbar_docs ul li:hover{
-    background-color: #1888ff;
+    background-color: var(--main-color);
     transform: scale(1.05);
-    color: white;
+    color: var(--color-letter-navbar);
     transition: 0.5s ease ;
     
 }
 .navbar_docs ul li a{
     text-decoration: none;
-    color: black;
+    color: var(--color-letter);
     padding: 0.75rem 0.7rem;
     width: 100%;
     transition: 0.5s ease;
 }
 .navbar_docs ul li a:hover{
-    color: white;
+    color: var(--color-letter-navbar);
 }
 .title_nav{
-    color: black;
+    color: var(--color-letter);
+}
+.navbarDic_docs{
+    width: 30%;
+    height: 22%;
+    border-radius: 0 0 0 20px;
+    background-color: var(--background-navbar);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.navbarDic_docs h2{
+    border-bottom: solid 2px var(--main-color);
+    margin-left: 15px;
+    margin-top: 20px;
+    position: relative;    
+}
+.navbarDic_docs ul {
+    margin: 10px;
+    list-style: none;
+}
+.navbarDic_docs ul li {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5em;
+    border-radius: 20px;
+    transition: 0.5s ;
+}
+.navbarDic_docs ul li:hover{
+    background-color: var(--main-color);
+    transform: scale(1.05);
+    color: var(--color-letter-navbar);
+    transition: 0.5s ease ;
+    
+}
+.navbarDic_docs ul li a{
+    text-decoration: none;
+    color: var(--color-letter);
+    padding: 0.75rem 0.7rem;
+    width: 100%;
+    transition: 0.5s ease;
+}
+.navbarDic_docs ul li a:hover{
+    color: var(--color-letter-navbar);
 }
 
 
@@ -52,14 +101,13 @@
     width: 30%;
     height: 35%;
     border-radius: 0 0 0 20px;
-    background-color: white;
+    background-color: var(--background-navbar);
     justify-content: center;
     display: flex;
     flex-direction: column;
-    border: solid 1px #cecece
 }
 .subnavbar_docs h2{
-    border-bottom: solid 2px #9da2b5;
+    border-bottom: solid 2px var(--main-color);
     margin-left: 15px;
     margin-top: 20px;
     position: relative;    
@@ -76,22 +124,21 @@
     transition: 0.5s ;
 }
 .subnavbar_docs ul li:hover{
-    background-color: #1888ff;
+    background-color: var(--main-color);
     transform: scale(1.05);
-    color: white;
     transition: 0.5s ease ;
     
 }
 .subnavbar_docs ul li a{
     text-decoration: none;
-    color: black;
+    color: var(--color-letter);
     padding: 0.75rem 0.7rem;
     width: 100%;
     transition: 0.5s ease;
 }
 .subnavbar_docs ul li a:hover{
-    color: white;
+    color: var(--color-letter-navbar);
 }
 .subtitle_nav{
-    color: black;
+    color: var(--color-letter);
 }

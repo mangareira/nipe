@@ -10,7 +10,7 @@ function InscricoesDicente(){
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
-    const [description, setDescription] = useState('')
+    const [password, setPassword] = useState('')
   
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -18,10 +18,10 @@ function InscricoesDicente(){
       axios.post('http://localhost:3002/dicente', {
         name,
         email,
-        description
+        password
       })
         .then((response) => {
-          console.log('Requisição bem-sucedida:', response.data);
+          alert('Requisição bem-sucedida:', response.data);
           // Faça algo com os dados de resposta, se necessário
         })
         .catch((error) => {
@@ -54,13 +54,13 @@ function InscricoesDicente(){
                     </div>
                     <div className={Ins.form_input}>
                         <input type="email" name="email" id="email" placeholder="escreva seu email" onChange={(e) => setEmail(e.target.value)} className={Ins.input}/>
-                    </div>
+                    </div>  
                     <div className={Ins.form}>
-                        <label htmlFor="description">Descrição do projeto:</label>
+                        <label htmlFor="password">Criar uma senha:</label>
                     </div>
                     <div className={Ins.form_input}>
-                        <textarea name="description" id="description" placeholder="Digite o titulo do conteudo e o que propoem" onChange={(e) => setDescription(e.target.value)} className={Ins.input_description}></textarea>
-                    </div>  
+                        <input type="password" placeholder='Escreva sua senha' name="password" id="password" onChange={(e) => setPassword(e.target.value)} className={Ins.input}/>
+                    </div>
                     <input type="submit" value="Submit" className={Ins.buttonSubmit} />
                 </form>
             </div>

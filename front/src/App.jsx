@@ -1,16 +1,14 @@
 
 import './App.css'
-import Header from './Components/Header'
-import Footer from './Components/Footer'
 import { AuthProvider } from './Components/context/auth'
+import RoutesPages from './Components/Routes'
 
 function App() {
 
   return (
     <>
       <AuthProvider>
-        <Header/>
-        <Footer/>
+        <RoutesPages/>
       </AuthProvider>
     </>
   )

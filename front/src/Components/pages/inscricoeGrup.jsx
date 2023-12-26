@@ -8,20 +8,20 @@ import { useState } from "react";
 
 function InscricoesGrup(){
 
-    const [tema, setTema] = useState('')
     const [nameGrup, setNameGrup] = useState('')
-    const [description, setDescription] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
   
     const handleSubmit = (e) => {
       e.preventDefault();
   
       axios.post('http://localhost:3002/grup', {
-        tema,
         nameGrup,
-        description
+        email,
+        password
       })
         .then((response) => {
-          console.log('Requisição bem-sucedida:', response.data);
+          alert('Requisição bem-sucedida:', response.data);
           // Faça algo com os dados de resposta, se necessário
         })
         .catch((error) => {
@@ -44,22 +44,22 @@ function InscricoesGrup(){
                         </button>
                     </Link>
                     <div className={Ins.form}>
-                        <label htmlFor="tema">Tema da Pesquisa</label>
-                    </div>
-                    <div className={Ins.form_input}>
-                        <input type="text" name="tema" id="tema" placeholder="Escreva o tema Proposto" onChange={(e) => setTema(e.target.value)} className={Ins.input}/>
-                    </div>
-                    <div className={Ins.form}>
                         <label htmlFor="nameGrup">Nomes das pessoas do grupo:</label>
                     </div>
                     <div className={Ins.form_input}>
                         <input type="text" placeholder='Escreva os nomes dos integrantes' name="nameGrup" id="nameGrup" onChange={(e) => setNameGrup(e.target.value)} className={Ins.input} />
                     </div>
                     <div className={Ins.form}>
-                        <label htmlFor="description">Descrição do projeto:</label>
+                        <label htmlFor="email">Email:</label>
                     </div>
                     <div className={Ins.form_input}>
-                        <textarea name="description" id="description" type="text" placeholder="Digite o titulo do conteúdo e o que propoem" onChange={(e) => setDescription(e.target.value)} className={Ins.input_description}/>
+                        <input type="email" name="email" id="email" placeholder="escreva seu email" onChange={(e) => setEmail(e.target.value)} className={Ins.input}/>
+                    </div>
+                    <div className={Ins.form}>
+                        <label htmlFor="password">Criar uma senha:</label>
+                    </div>
+                    <div className={Ins.form_input}>
+                        <input type="password" placeholder='Escreva sua senha' name="password" id="password" onChange={(e) => setPassword(e.target.value)} className={Ins.input}/>
                     </div>
                     <input type="submit" value="Submit" className={Ins.buttonSubmit}/>
                 </form>

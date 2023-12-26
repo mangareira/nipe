@@ -22,9 +22,11 @@ function Home(){
                         Iniciar sua Pesquisa/Aluno
                         </button>
                     </Link>
-                    <Link to='/programas/pequisadocente'><button className={styles.btn}>
+                    <Link to='/programas/pequisadocente'>
+                        <button className={styles.btn_secondary}>
                         Iniciar sua Pesquisa/Professor
-                    </button></Link>
+                        </button>
+                    </Link>
                 </div>
                 <figure>
                     <img src="/bookReader.svg" alt="ilustração home" className={styles.img_home}/>

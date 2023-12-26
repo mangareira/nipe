@@ -17,7 +17,7 @@ function SubNavbarItems () {
                     <h1 className={styles.title_notices}>{item.title}</h1>
                     <p className={styles.text_notices}>{item.text}</p>
                     <Link to={item.path}>
-                        <span className={styles.text}>Ler Mais </span>
+                        <span className={styles.text_notice}>Ler Mais </span>
                     </Link>
                 </div>
             </div> 

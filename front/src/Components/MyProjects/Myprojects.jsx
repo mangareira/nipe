@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import styles from "../pages/Docs.module.css"
+import Pagination from "../pagination"
+import ItemsProjects from "../ItemsProjetos"
 
 function MyProjectsItems() {
     
@@ -34,33 +35,8 @@ function MyProjectsItems() {
 
     return(
         <>
-            <div className={styles.btn_container}>
-                {Array.from(Array(pages), (item, index) => {
-                    const uniqueKey = `page_${index}`
-                    return (
-                        <div  key={uniqueKey}>
-                            <button
-                            style={index === currentPage ? {backgroundColor: "#21d4fd", color: "#fff"} : null} 
-                            className={styles.btn_page}
-                            value={index} 
-                            onClick={(e) => setCurrentPage(Number(e.target.value))}>
-                                {index + 1}
-                            </button>
-                        </div>
-                    )
-                })}
-            </div>
-            {projetos.length === 0 ? (<p className={styles.loading}>carrengando ...</p>) : (
-                currentItems.map((projeto) => (
-                    <div className={styles.box_resumo} key={projeto.id}>
-                        <div className={styles.header_temas}>Tema:</div>
-                        <div>{projeto.tema}</div>
-                        <div className={styles.header_temas}>Resumo:</div>
-                        <div>{projeto.resumo}</div>
-                    </div>
-                ))
-            )}
-            
+            <Pagination setCurrentPage={setCurrentPage} pages={pages} currentPage={currentPage}/>
+            <ItemsProjects projetos={projetos} currentItems={currentItems}/>
         </>
     )
 }

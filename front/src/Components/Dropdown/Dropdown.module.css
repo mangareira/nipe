@@ -1,19 +1,25 @@
+:root{
+  --main-color: #1eb2a6;
+  --main-color-hover:#22c7b9;
+  --color-letter: #000;
+  --color-letter-secondary:#fff;
+}
 .dropdown_menu {
     width: 200px;
     position: absolute;
-    top: 80px;
+    top: 75px;
     list-style: none;
     text-align: start;
     z-index: 2;
   }
   
   .dropdown_menu li {
-    background: #1888ff;
+    background: var(--main-color);
     cursor: pointer;
   }
   
   .dropdown_menu li:hover {
-    background: #5cabff;
+    background: var(--main-color-hover);
   }
   
   .dropdown_menu.clicked {
@@ -25,6 +31,6 @@
     height: 100%;
     width: 100%;
     text-decoration: none;
-    color: #fff;
+    color: var(--color-letter-secondary);
     padding: 16px;
   }

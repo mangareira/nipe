@@ -1,3 +1,10 @@
+:root{
+    --main-color: #1eb2a6;
+    --color-letter: #000;
+    --color-letter-secondary:#fff;
+}
+
+
 .Inscricoes_container{
     display: flex;
     justify-content: flex-start;
@@ -8,44 +15,39 @@
     width: 100%;
     margin-left: 50px;
 }
+.form{
+    color: var(--color-letter);
+}
 .back{
-    color: white;
+    color: var(--color-letter);
     text-decoration: none;
 }
 .button{
     padding: 14px;
     font-size: .95em;
-    font-weight: bold;
+    font-weight: 500;
     border: 0;
     border-radius: 30px;
-    background: #1888ff;
-    color: white;
+    background: var(--main-color);
+    color: var(--color-letter-secondary);
     cursor: pointer;
     transition: 0.5s ease-out;
 }
 .input{
     border: 0px;
-    background-color: #e0e0e0;
+    background-color: var(--color-letter-secondary);
     padding: 10px;
     border-radius: 20px;
     width: 300px;
 }
-.input_description{
-    border: 0px;
-    background-color: #e0e0e0;
-    padding: 10px;
-    width: 100%;
-    height: 200px;
-    border-radius: 20px;
-}
 .buttonSubmit{
     padding: 14px;
     font-size: .95em;
-    font-weight: bold;
+    font-weight: 500;
     border: 0;
     border-radius: 30px;
-    background: #1888ff;
-    color: white;
+    background: var(--main-color);
+    color: var(--color-letter-secondary);
     cursor: pointer;
     margin: 20px 0 20px 0;
     transition: 0.5s ease-out;

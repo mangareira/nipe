@@ -5,6 +5,6 @@ export const MenuItems =[
     },
     {
         title: 'Discente de iniciação Científica/IC',
-        path: '/discentedeinicicaocientifica',
+        path: '/discentedeinicicaocientifica/editais',
     },
 ]

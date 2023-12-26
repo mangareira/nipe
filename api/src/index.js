@@ -128,14 +128,18 @@ app.post("/uploads/image", uploads.single("image"), async (req, res) => {
     const tipoArquivo = req.file.mimetype;
     const pathArquivo = req.file.path
     
-    const novoArquivo = await prisma.image.create({
+    const novoImagem = await prisma.image.create({
       data: {
         nome: nomeArquivo,
         type: tipoArquivo,
         path: pathArquivo
       },
+      select:{
+        nome:true,
+        type:true
+      }
     })
-  res.status(200).json({ mensagem: "Imagem enviada com sucesso!', arquivo: novoArquivo" })
+  res.status(200).json({ mensagem: "Imagem enviada com sucesso!", arquivo: novoImagem })
 } catch (error) {
   console.error(error);
   res.status(500).json({ error: 'Erro interno do servidor' })
@@ -153,8 +157,12 @@ app.post("/uploads/arquivo", uploadsArq.single("arquivo"), async (req, res) => {
         type: tipoArquivo,
         path: pathArquivo
       },
+      select:{
+        nome:true,
+        type:true
+      }
     })
-  res.status(200).json({ mensagem: "arquivo enviada com sucesso!', arquivo: novoArquivo" })
+  res.status(200).json({ mensagem: "arquivo enviado com sucesso!", arquivo: novoArquivo })
 } catch (error) {
   console.error(error);
   res.status(500).json({ error: 'Erro interno do servidor' })

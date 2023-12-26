@@ -1,16 +1,23 @@
+:root{
+  --color-main: #1eb2a6;
+  --color-secondary: #fff;
+}
+
+
 .navbar {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(255, 255, 255);
     padding: 1rem;
+    background-color: hsla(0,0%,100%,.2);
   }
 .logo_nipe{
-    width: 200px;
+    width: 150px;
 }
 
 .logo{
   position: relative;
   left: 100px;
+  bottom: -10px;
 }
   
 .nav_menu {
@@ -26,16 +33,16 @@
 }
 
 .nav_links {
-  color: #1888ff;
+  color: var(--color-main);
   text-decoration: none;
   padding: 0.5rem 0.7rem;
 }
 
 .nav_links:hover {
-  background-color: #1888ff;
+  background-color: var(--color-main);
   border-radius: 4px;
   transition: all 0.2s ease-out;
-  color: white;
+  color: var(--color-secondary);
 }
 
 
@@ -47,18 +54,18 @@
   display: none;
 }
 .nav_btn{
-  padding: 10px 40px;
+  padding: 8px 27px;
   font-size: 18px;
   font-weight: 600;
-  background-color: #1888ff;
+  background-color: var(--color-main);
   border-radius: 30px;
-  color: white;
+  color: var(--color-secondary);
   text-decoration: none;
   transition: 0.5s;
 }
 .nav_btn:hover{
   transform: scale(1.05);
-
+  box-shadow: 0 0 8px var(--color-main);
 }
 .icon_nav{
   position: relative;
@@ -92,6 +99,6 @@
     position: relative;
     right: 20px;
     top: 30px;
-    color: #1888ff;
+    color: var(--color-main);
   }
 }
