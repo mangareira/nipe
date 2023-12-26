@@ -38,7 +38,7 @@ function InscricoesDicente(){
             <div className={Ins.Inscricoes_container}>
                 
                 <form id="form" onSubmit={handleSubmit} className={Ins.form_container}>
-                    <Link to='/discentedeinicicaocientifica' className={Ins.back}>   
+                    <Link to='/discentedeinicicaocientifica/inscricoeseresultados' className={Ins.back}>   
                         <button className={Ins.button}>                            
                             Voltar                            
                         </button>
