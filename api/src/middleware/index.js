@@ -12,7 +12,7 @@ export function AuthMiddlewares(req, res, next) {
     const [, token] = authorization.split(" ")
 
     try {
-        const decoded = verify(token, "secret")
+        const decoded = verify(token, process.env.SECRET_KEY)
         const {id} = decoded
 
         req.userId = id

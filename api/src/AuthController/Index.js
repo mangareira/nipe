@@ -21,7 +21,7 @@ export class AuthController{
             return res.json({error: "Senha Incorreto" })
         }
         const {id} = user
-        const token = sign({id: user.id}, "secret", {expiresIn: "1h"})
+        const token = sign({id: user.id}, process.env.SECRET_KEY, {expiresIn: "1h"})
 
         return res.json({user: {id, email}, token})
     }
@@ -43,7 +43,7 @@ export class AuthControllerProf{
             return res.json({error: "Senha Incorreto" })
         }
         const {id} = user
-        const token = sign({id: user.id}, "secret", {expiresIn: "1h"})
+        const token = sign({id: user.id}, process.env.SECRET_KEY, {expiresIn: "1h"})
 
         return res.json({user: {id, email}, token})
     }
@@ -65,7 +65,7 @@ export class AuthControllerDis{
             return res.json({error: "Senha Incorreto" })
         }
         const {id} = user
-        const token = sign({id: user.id}, "secret", {expiresIn: "1h"})
+        const token = sign({id: user.id}, process.env.SECRET_KEY, {expiresIn: "1h"})
 
         return res.json({user: {id, email}, token})
     }
@@ -87,7 +87,7 @@ export class AuthControllerGrup{
             return res.json({error: "Senha Incorreto" })
         }
         const {id} = user
-        const token = sign({id: user.id}, "secret", {expiresIn: "1h"})
+        const token = sign({id: user.id},process.env.SECRET_KEY, {expiresIn: "1h"})
 
         return res.json({user: {id, email}, token})
     }
