@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import axios from "axios"
+import { Api } from '../../axios'
 import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 
@@ -60,7 +60,7 @@ export const AuthProvider = ({children}) => {
 
 // signIn grup
     const signIn = async ({email, password}) => {
-        const response = await axios.post("http://localhost:3002/auth/user", {
+        const response = await Api.post("/auth/user", {
             email,
             password
         })
@@ -69,7 +69,7 @@ export const AuthProvider = ({children}) => {
             alert(response.data.error)
         }else{
             setUser(response.data.user)
-            axios.defaults.headers.common[
+            Api.defaults.headers.common[
                 "Authorization"
             ] = `Bearer ${response.data.token}`
             localStorage.setItem("@Auth:token", response.data.token)
@@ -77,7 +77,7 @@ export const AuthProvider = ({children}) => {
         }
     }
     const signInProf = async ({email, password}) => {
-        const response = await axios.post("http://localhost:3002/auth/prof", {
+        const response = await Api.post("http://localhost:3002/auth/prof", {
             email,
             password
         })
@@ -86,7 +86,7 @@ export const AuthProvider = ({children}) => {
             alert(response.data.error)
         }else{
             setProf(response.data.user)
-            axios.defaults.headers.common[
+            Api.defaults.headers.common[
                 "Authorization"
             ] = `Bearer ${response.data.token}`
             localStorage.setItem("@Auth:token", response.data.token)
@@ -94,7 +94,7 @@ export const AuthProvider = ({children}) => {
         }
     }
     const signInDis = async ({email, password}) => {
-        const response = await axios.post("http://localhost:3002/auth/dis", {
+        const response = await Api.post("http://localhost:3002/auth/dis", {
             email,
             password
         })
@@ -103,7 +103,7 @@ export const AuthProvider = ({children}) => {
             alert(response.data.error)
         }else{
             setDis(response.data.user)
-            axios.defaults.headers.common[
+            Api.defaults.headers.common[
                 "Authorization"
             ] = `Bearer ${response.data.token}`
             localStorage.setItem("@Auth:token", response.data.token)
@@ -111,7 +111,7 @@ export const AuthProvider = ({children}) => {
         }
     }
     const signInGrup = async ({email, password}) => {
-        const response = await axios.post("http://localhost:3002/auth/grup", {
+        const response = await Api.post("http://localhost:3002/auth/grup", {
             email,
             password
         })
@@ -120,7 +120,7 @@ export const AuthProvider = ({children}) => {
             alert(response.data.error)
         }else{
             setGrup(response.data.user)
-            axios.defaults.headers.common[
+            Api.defaults.headers.common[
                 "Authorization"
             ] = `Bearer ${response.data.token}`
             localStorage.setItem("@Auth:token", response.data.token)

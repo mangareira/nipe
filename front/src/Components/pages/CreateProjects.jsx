@@ -1,7 +1,7 @@
 import styles from "./Docs.module.css"
 import Projects from "../SubNavbarItems/Projects"
 import { useState } from "react"
-import axios from "axios"
+import { Api } from '../../axios'
 
 function CreateProjects() {
 
@@ -13,7 +13,7 @@ function CreateProjects() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:3002/project/${authorId.id}`, {
+        Api.post(`/project/${authorId.id}`, {
         tema,
         resumo
         })

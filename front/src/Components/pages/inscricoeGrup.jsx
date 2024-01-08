@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import styles from "./Docs.module.css"
-import axios from "axios"
+import { Api } from '../../axios'
 import Ins from "./Inscriçoes.module.css"
 import { useState } from "react";
 
@@ -15,7 +15,7 @@ function InscricoesGrup(){
     const handleSubmit = (e) => {
       e.preventDefault();
   
-      axios.post('http://localhost:3002/grup', {
+      Api.post('/grup', {
         nameGrup,
         email,
         password

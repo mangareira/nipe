@@ -1,7 +1,7 @@
 import styles from "./Docs.module.css"
 import Projects from "../SubNavbarItems/ProjectsGrup"
 import { useState } from "react"
-import axios from "axios"
+import { Api } from '../../axios'
 
 function CreateProjectsGrup() {
 
@@ -13,7 +13,7 @@ function CreateProjectsGrup() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:3002/projectgrup/${gruPesqId.id}`, {
+        Api.post(`http://localhost:3002/projectgrup/${gruPesqId.id}`, {
         tema,
         resumo
         })

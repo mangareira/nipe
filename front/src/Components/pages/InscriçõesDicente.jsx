@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import styles from "./Docs.module.css"
-import axios from "axios"
+import { Api } from '../../axios'
 import { useState } from "react";
 import Ins from "./Inscriçoes.module.css"
 
@@ -15,7 +15,7 @@ function InscricoesDicente(){
     const handleSubmit = (e) => {
       e.preventDefault();
   
-      axios.post('http://localhost:3002/dicente', {
+      Api.post('/dicente', {
         name,
         email,
         password

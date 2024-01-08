@@ -1,4 +1,4 @@
-import axios from "axios"
+import { Api } from '../../axios'
 import { useEffect, useState } from "react"
 import Pagination from "../pagination"
 import ItemsProjects from "../ItemsProjetos"
@@ -20,7 +20,7 @@ function MyProjectsItems() {
     const getProjects = async (req, res) => {
         try {
             const id = JSON.parse(localStorage.getItem('@Auth:user'))
-            const Myproject = await axios.get(`http://localhost:3002/user-unique/${id.id}`)
+            const Myproject = await Api.get(`/user-unique/${id.id}`)
             const projects = Myproject.data.Projetos
             setProjetos(projects)
         } catch (error) {
