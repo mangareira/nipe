@@ -1,19 +1,9 @@
-import mar from '../../assets/waves.jpg'
-import barco from '../../assets/ship.jpg'
-import praia from '../../assets/beach.jpg'
+import mar from '../../assets/bannner.png'
 
 
 export const SlideImgs =[
     {
         img : mar,
         path: '/maisnoticias'
-    },
-    {
-        img : barco,
-        path: '/maisnoticias2'
-    },
-    {
-        img : praia,
-        path: '/maisnoticias3'
-    },
+    }
 ]

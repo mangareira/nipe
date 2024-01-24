@@ -1,9 +1,7 @@
 
 import styles from "./Docs.module.css"
-import Nav from "./Subnav.module.css"
-import { Link } from "react-router-dom"
-import {FaAnglesDown} from "react-icons/fa6"
-import SubNavbarItems from "../SubNavbarItems"
+import { Inscrições } from "../Inscrições"
+import { SubNavBar } from "../SubNavbarItems"
 
 function InscricoesEresultadoProf(){
     return(
@@ -13,28 +11,12 @@ function InscricoesEresultadoProf(){
             </div>
             <div className={styles.container_Ini}>
                 <div className={styles.container_texts}>
-                    <div className={Nav.subnavbar_docs}>
-                        <h2 className={Nav.subtitle_nav}>Docentes</h2>
-                        <ul>
-                            <SubNavbarItems/>
-                        </ul>
-                    </div>
+                    <SubNavBar 
+                    DropDown={'Docente'}
+                    items={'Docente'}
+                    />
                     <div className={styles.docs}>
-                        <h1 className={styles.title}>Inscrições e Resultados</h1>
-                        <div className={styles.edits_docs}>
-                            <h3>Venha Fazer sua Inscrição</h3>
-                            <Link to={"/programas/inscricoeseresultados/inscriçoes"}>
-                                <button>Inscrição</button>
-                            </Link>
-                            <Link className={styles.links_login} to={"/login/prof"}>
-                                <button >Criar Projetos</button>
-                            </Link>
-                            <div className={styles.results}>
-                                <h3>Resultados 2023</h3>
-                                <FaAnglesDown className={styles.FaAnglesDown}/>
-                            </div>
-
-                        </div>
+                        <Inscrições inscrição={"/programas/inscricoeseresultados/inscriçoes"} login={"/login/prof"}/>
                     </div>
                 </div>
             </div>

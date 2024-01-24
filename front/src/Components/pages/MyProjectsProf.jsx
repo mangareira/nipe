@@ -1,6 +1,7 @@
-import MyProjectsItems from "../MyProjects/MyprojectsProf"
-import Projects from "../SubNavbarItems/ProjectsProf"
+import { MenuProjects } from "../MenuProjects"
+import MyProjectsItems from "../MyProjects/Myprojects"
 import styles from "./Docs.module.css"
+
 
 
 function MyProjectsProf() {
@@ -12,14 +13,15 @@ function MyProjectsProf() {
             </div>
             <div className={styles.createprojects_container}>
                 <div className={styles.createprojects}>
-                    <div className={styles.navbar_docs}>
-                        <h2 className={styles.title_nav}>Menu</h2>
-                        <ul>
-                            <Projects/>
-                        </ul>
-                    </div>
+                    <MenuProjects 
+                        DropDown={'Prof'}
+                        item={'prof'} 
+                    />
                     <div className={styles.content_container_projects}>
-                        <MyProjectsItems/>
+                        <MyProjectsItems 
+                        url={'prof-unique'}
+                        Auth={'prof'}
+                        />
                     </div>
                 </div>
             </div>

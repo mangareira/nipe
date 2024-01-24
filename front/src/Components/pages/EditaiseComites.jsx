@@ -1,7 +1,6 @@
 
+import { SubNavBar } from "../SubNavbarItems"
 import styles from "./Docs.module.css"
-import Nav from "./Subnav.module.css"
-import IniCi from "../SubNavbarItems/IniciacaoCientifica"
 
 function EditaiseComites(){
     return(
@@ -11,16 +10,16 @@ function EditaiseComites(){
             </div>
             <div className={styles.container_Ini}>
                 <div className={styles.container_texts}>
-                    <div className={Nav.navbar_docs}>
-                        <h2 className={Nav.title_nav}>Iniciação Científica</h2>
-                        <ul>
-                            <IniCi/>
-                        </ul>
-                    </div>
+                    <SubNavBar 
+                    DropDown={'Iniciação'}
+                    items={'Iniciação'}
+                    />
                     <div className={styles.docs}>
-                        <h1 className={styles.title}>Editais e Comitês</h1>
-                        <div className={styles.edits_docs}>
-                            <p>possiveis editais</p>
+                        <div className={styles.containerDocs}>
+                            <h1 className={styles.title}>Editais e Comitês</h1>
+                            <div className={styles.edits_docs}>
+                                <p>possiveis editais</p>
+                            </div>
                         </div>
                     </div>
                 </div>

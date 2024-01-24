@@ -1,8 +1,4 @@
-:root{
-    --main-color: #1eb2a6;
-    --color-letter: #000;
-    --color-letter-secondary:#fff;
-}
+
 
 
 .header_title{
@@ -18,13 +14,17 @@
 }
 .container_texts{
     display: flex;
-    min-width: 1440px;
+    width: 95%;
     margin-right: auto;
     margin-left: auto;
     height: 100%;
     
 }
 .container_Ini{
+    height: 110vh;
+    display: flex;
+}
+.container_Notices{
     height: 110vh;
     display: flex;
 }
@@ -139,6 +139,7 @@
     border-radius: 10px;
     color: var(--color-letter-secondary);
     transition: 0.5s ease-out;
+    cursor: pointer;
 }
 .edits_docs button:hover{
     transform: scale(1.05);
@@ -221,27 +222,10 @@
 .btn_secondary:hover{
     transform: scale(1.05);
 }
-@media screen and (max-width: 1200px) {
-    .btn{
-        margin-top: 20px;
-        position: relative;
-        left: -10px;
-    }
-    .text_home{
-        font-size: 20px;
-    }
-    .img_home{
-        margin: 30px 0 30px 0;
-        width: 300px;
-    }
-    .presentation{
-        padding: 2rem;
-        margin: 20px 20px 0  20px ;
-    }
-}
+
 .container_links{
-    height: 90vh;
     display: flex;
+    height: 90vh;
 }
 .links{
     display: grid;
@@ -516,8 +500,8 @@ content: "";
 }
 .createprojects{
     display: flex;
-    min-width: 1440px;
     height: 100%;
+    width: 100%;
 }
 
 .form_container{
@@ -642,7 +626,6 @@ content: "";
 .box_resumo{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     margin: 10px 0 10px 10px;
     width: 700px;
     height: 130px;
@@ -679,4 +662,130 @@ content: "";
 }
 .text_temas{
     color: var(--color-letter);
+}
+
+@media screen and (max-width: 500px){
+    .editais_docs{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .edits_docs button{
+        margin-top: 10px;
+    }
+    .links_login{
+        margin: 0;
+    }
+    .results{
+        margin-top: 10px;
+    }
+    .containerBtn{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .containerBtn a {
+        width: 100%;
+    }
+    .containerBtn button{
+        width: 100%;
+    }
+    .containerDocs .title{
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .containerDocs .edits_docs{
+        margin-left: 0;
+        width: 100%;
+    }
+    .containerDocs{
+        width: 100%;
+        padding: 0 20px 0 20px ;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .docs_dicen{
+        padding: 0 20px 0 20px;
+    }
+    .docs_dicen .title{
+        margin: 0;
+        width: 100%;
+    }
+    .docs_dicen .edits_docs_pagfull{
+        margin: 0;
+        width: 100%;
+    }
+    .header_title span{
+        font-size: 20px;
+    }
+    
+    
+
+}
+@media screen and (max-width:700px){
+    .links{
+        display: flex;
+        flex-direction: column;
+    }
+    .container_links{
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .posts{
+        grid-template-columns: repeat(1,1fr);
+        margin-bottom: 20px;
+    }
+    .postsCenter{
+        display: flex;
+        justify-content: center;
+    }
+    .container_Notices{
+        height: 100%;
+    }
+    .box_resumo{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .presentation a button {
+        margin-bottom: 20px;
+    }
+    .text_home{
+        font-size: 20px;
+    }
+    .img_home{
+        margin: 30px 0 30px 0;
+        width: 300px;
+    }
+    .presentation{
+        padding: 2rem;
+        margin: 20px 20px 0  20px ;
+    }
+    .img_home{
+        display: none;
+    }
+    .docs{
+        width: 100%;
+    }
+    .header_title{
+        font-size: 30px;
+        text-align: center;
+    }
+    .navbar_docs{
+        display: none;
+    }
+    .content_container_projects{
+        width: 100%;
+    }
+    .form_container{
+        width: 500px;
+    }
+    .div_projects{
+        width: 100%;
+    }
+    
 }

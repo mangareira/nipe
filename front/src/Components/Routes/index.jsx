@@ -36,13 +36,21 @@ import CreateProjectsGrup from '../pages/CreateProjectsGrup'
 import Header from '../Header'
 import Footer from '../Footer'
 import DiscenteDeIniciacaoCientificaIER from '../pages/DiscenteDeIniciacaoCientificaIER'
+import MenuMobile from '../MenuMobile'
+import { useState } from 'react'
 
 
 
 const RoutesPages = () => {
+
+    const [menuIsVisible, setMenuIsVisible] = useState(false);
     return(
         <Router>
-            <Header/>
+            <MenuMobile
+            menuIsVisible={menuIsVisible}
+            setMenuIsVisible={setMenuIsVisible}
+            />
+            <Header setMenuIsVisible={setMenuIsVisible}/>
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/editais' element={<Editais/>}/>

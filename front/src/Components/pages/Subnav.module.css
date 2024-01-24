@@ -1,18 +1,12 @@
 
-:root{
-    --main-color: #1eb2a6;
-    --color-letter: #000;
-    --background-navbar:#fff;
-    --color-letter-navbar: #fff;
-}
 .navbar_docs{
     width: 30%;
     height: 39%;
     border-radius: 0 0 0 20px;
     background-color: var(--background-navbar);
-    justify-content: center;
     display: flex;
     flex-direction: column;
+    
 }
 .navbar_docs h2{
     border-bottom: solid 2px var(--main-color);
@@ -141,4 +135,16 @@
 }
 .subtitle_nav{
     color: var(--color-letter);
+}
+
+@media screen and (max-width: 1200px){
+    .subnavbar_docs{
+        display: none;
+    }
+    .navbar_docs{
+        display: none;
+    }
+    .navbarDic_docs{
+        display: none;
+    }
 }

@@ -1,5 +1,5 @@
-import MyProjectsItems from "../MyProjects/MyprojectsGrup"
-import Projects from "../SubNavbarItems/ProjectsGrup"
+import { MenuProjects } from "../MenuProjects"
+import MyProjectsItems from "../MyProjects/Myprojects"
 import styles from "./Docs.module.css"
 
 
@@ -12,14 +12,15 @@ function MyProjectsGrup() {
             </div>
             <div className={styles.createprojects_container}>
                 <div className={styles.createprojects}>
-                    <div className={styles.navbar_docs}>
-                        <h2 className={styles.title_nav}>Menu</h2>
-                        <ul>
-                            <Projects/>
-                        </ul>
-                    </div>
+                    <MenuProjects 
+                        DropDown={'Grup'}
+                        item={'grup'} 
+                    />
                     <div className={styles.content_container_projects}>
-                        <MyProjectsItems/>
+                        <MyProjectsItems 
+                        url={'grup-unique'}
+                        Auth={'grup'}
+                        />
                     </div>
                 </div>
             </div>

@@ -1,29 +1,10 @@
 import styles from "./Docs.module.css"
-import Projects from "../SubNavbarItems/Projects"
-import { useState } from "react"
-import { Api } from '../../axios'
+import { CreateProjectsProp } from "../CreateProjects"
+import { MenuProjects } from "../MenuProjects"
 
 function CreateProjects() {
 
-    const [tema, setTema] = useState("")
-    const [resumo, setResumo] = useState("") 
-
-    const authorId = JSON.parse(localStorage.getItem('@Auth:user'))
-
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        Api.post(`/project/${authorId.id}`, {
-        tema,
-        resumo
-        })
-        .then((response) => {
-            alert('Requisição bem-sucedida:', response.data);
-        })
-        .catch((error) => {
-            console.error('Erro na requisição:', error);
-        });
-    };
+    
     return(
         <>
             <div className={styles.header_title}>
@@ -31,30 +12,14 @@ function CreateProjects() {
             </div>
             <div className={styles.createprojects_container}>
                 <div className={styles.createprojects}>
-                    <div className={styles.navbar_docs}>
-                        <h2 className={styles.title_nav}>Menu</h2>
-                        <ul>
-                            <Projects/>
-                        </ul>
-                    </div>
-                    <div className={styles.content_container_projects}>
-                        <form className={styles.form_container} onSubmit={handleSubmit}>
-                                <div className={styles.header_projects}>
-                                    <h2>Criar Projeto</h2>
-                                </div>
-                                <div className={styles.div_projects}>
-                                    <input type="text" className={tema !== "" ? `${styles.input_projects} ${styles.project_value}` : `${styles.input_projects}`} value={tema}  onChange={e => setTema(e.target.value)}/>
-                                    <span data-placeholder='Tema' className={styles.title_project} ></span>
-                                </div>
-                                <div className={styles.div_projects}>
-                                    <input type="text" className={resumo !== "" ? `${styles.input_projects} ${styles.project_value}` : `${styles.input_projects}`} value={resumo}  onChange={e => setResumo(e.target.value)} />
-                                    <span className={styles.title_project} data-placeholder='Resumo'></span>
-                                </div>
-                                <div className={styles.projects_btn_container}>
-                                    <button type="submit" className={styles.projects_btn}>Criar</button>
-                                </div>
-                        </form>
-                    </div>
+                    <MenuProjects 
+                    DropDown={'User'}
+                    item={'user'} 
+                    />
+                    <CreateProjectsProp 
+                    Auth={'user'}
+                    url={'project'}
+                    />
                 </div>
             </div>
         </>

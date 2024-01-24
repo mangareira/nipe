@@ -1,13 +1,16 @@
 import styles from './Header.module.css'
 import Navbar from '../Navbar'
 
-function Header(){
+// eslint-disable-next-line react/prop-types, no-unused-vars
+function Header({ setMenuIsVisible }){
+
 
     return(
         <>
+            
             <header className={styles.header}>
                 <div className={styles.interface}>
-                    <Navbar/>
+                    <Navbar setMenuIsVisible={setMenuIsVisible}/>
                 </div>
             </header>
         </>

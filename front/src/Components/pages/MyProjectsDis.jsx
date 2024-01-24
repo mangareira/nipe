@@ -1,5 +1,5 @@
-import MyProjectsItems from "../MyProjects/MyprojectsDis"
-import Projects from "../SubNavbarItems/ProjectsDis"
+import { MenuProjects } from "../MenuProjects"
+import MyProjectsItems from "../MyProjects/Myprojects"
 import styles from "./Docs.module.css"
 
 
@@ -12,14 +12,15 @@ function MyProjectsDis() {
             </div>
             <div className={styles.createprojects_container}>
                 <div className={styles.createprojects}>
-                    <div className={styles.navbar_docs}>
-                        <h2 className={styles.title_nav}>Menu</h2>
-                        <ul>
-                            <Projects/>
-                        </ul>
-                    </div>
+                    <MenuProjects 
+                        DropDown={'Dis'}
+                        item={'dis'} 
+                    />
                     <div className={styles.content_container_projects}>
-                        <MyProjectsItems/>
+                        <MyProjectsItems 
+                        url={'dicente-unique'}
+                        Auth={'dis'}
+                        />
                     </div>
                 </div>
             </div>

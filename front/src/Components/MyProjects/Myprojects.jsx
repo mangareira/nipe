@@ -3,7 +3,8 @@ import { useEffect, useState } from "react"
 import Pagination from "../pagination"
 import ItemsProjects from "../ItemsProjetos"
 
-function MyProjectsItems() {
+// eslint-disable-next-line react/prop-types
+function MyProjectsItems({url, Auth}) {
     
     const [projetos, setProjetos] = useState([])
     // eslint-disable-next-line no-unused-vars
@@ -19,8 +20,8 @@ function MyProjectsItems() {
 
     const getProjects = async (req, res) => {
         try {
-            const id = JSON.parse(localStorage.getItem('@Auth:user'))
-            const Myproject = await Api.get(`/user-unique/${id.id}`)
+            const id = JSON.parse(localStorage.getItem(`@Auth:${Auth}`))
+            const Myproject = await Api.get(`/${url}/${id.id}`)
             const projects = Myproject.data.Projetos
             setProjetos(projects)
         } catch (error) {
@@ -30,6 +31,7 @@ function MyProjectsItems() {
 
     useEffect(() => {
         getProjects()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 

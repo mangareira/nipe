@@ -1,5 +1,4 @@
 
-import './App.css'
 import { AuthProvider } from './Components/context/auth'
 import RoutesPages from './Components/Routes'
 

@@ -1,15 +1,9 @@
-:root{
-  --color-main: #1eb2a6;
-  --color-secondary: #fff;
-}
-
-
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    background-color: hsla(0,0%,100%,.2);
-  }
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: hsla(0,0%,100%,.2);
+}
 .logo_nipe{
     width: 150px;
 }
@@ -99,6 +93,9 @@
     position: relative;
     right: 20px;
     top: 30px;
-    color: var(--color-main);
+    color: #265073;
+  }
+  .active{
+    display: flex;
   }
 }

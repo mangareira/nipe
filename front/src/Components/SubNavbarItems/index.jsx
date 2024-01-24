@@ -1,23 +1,22 @@
-import { Link } from "react-router-dom";
-import { MenuItems } from "./MenuItems";
+import { MenuPagesMobile } from "../MenuPagesMobile"
+import { dropDownItemsDocentes } from "../MenuPagesMobile/items/items"
+import SubNavbarItems from "./item"
+import { MenuItems } from "./item/MenuItems"
+import Nav from "../pages/Subnav.module.css"
 
-function SubNavbarItems () {
-   return(
-     <>
-       {MenuItems.map((item, index) => {
-           return (
-             <li key={index}>
-               <Link
-                 to={item.path}
-               >
-                 {item.title}
-               </Link>
-             </li>
-           );
-         })}
-    </>  
-   ) 
+
+
+// eslint-disable-next-line react/prop-types
+export const SubNavBar = ({items, DropDown}) => {
+    return(
+        <>
+        <MenuPagesMobile DropDown={dropDownItemsDocentes[DropDown]}/>
+        <div className={Nav.navbar_docs}>
+            <h2 className={Nav.title_nav}>Iniciação Científica</h2>
+            <ul>
+                <SubNavbarItems Item={MenuItems[items]}/>
+            </ul>
+        </div>
+        </>
+    )
 }
-
-export default SubNavbarItems
-

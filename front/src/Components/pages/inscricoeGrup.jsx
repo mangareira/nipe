@@ -36,7 +36,6 @@ function InscricoesGrup(){
                 <span>Inscrições</span>
             </div>
             <div className={Ins.Inscricoes_container}>
-                
                 <form id="form" onSubmit={handleSubmit} className={Ins.form_container}>
                     <Link to="/grupodepesquisa" className={Ins.back}>
                         <button  className={Ins.button}>

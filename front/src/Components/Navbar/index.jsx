@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import styles from'./Navbar.module.css';
 import Dropdown from '../Dropdown';
 import DropdownPes from '../DropdownPes';
-import nipelogo from '../../assets/nipelogo.png'
+import nipelogo from '../../assets/0.png'
 import {FaCaretDown, FaHouse, FaClipboard, FaSistrix, FaFileLines, FaPeopleGroup, FaLink, FaSquarePhone, FaBars} from 'react-icons/fa6'
 
-function Navbar() {
+// eslint-disable-next-line react/prop-types
+function Navbar( {setMenuIsVisible} ) {
   const [dropdown, setDropdown] = useState(false);
-
+  const [dropdownPes, setDropdownPes] = useState(false);
 
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
@@ -25,9 +26,7 @@ function Navbar() {
       setDropdown(false);
     }
   };
-  const [dropdownPes, setDropdownPes] = useState(false);
-
-
+  
   const onMouseEnterPes = () => {
     if (window.innerWidth < 960) {
       setDropdownPes(false);
@@ -52,7 +51,7 @@ function Navbar() {
             <img src={nipelogo} alt="nipelogo" className={styles.logo_nipe}/>
           </Link>
         </div>
-        <FaBars className={styles.nav_bars}/>
+        <FaBars className={styles.nav_bars} onClick={() => setMenuIsVisible(true)} />
         <ul className={styles.nav_menu}>
           <li className={styles.nav_item}>
             <Link to='/' className={styles.nav_links} >
