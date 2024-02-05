@@ -1,3 +1,4 @@
 node_modules
 # Keep environment variables out of version control
 diretorio-de-uploads
+banco-de-dados-evento-api
