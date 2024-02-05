@@ -6,7 +6,7 @@ function DiscenteDeIniciacaoCientifica(){
     return(
         <>
             <div className={styles.header_title}>
-                <span>Discente de iniciação Científica/IC</span>
+                <span>Pesquisador visitante</span>
             </div>
             <div className={styles.container_Ini}>
                 <div className={styles.container_texts}>
